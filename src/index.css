@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vinho: #820B16;
+  --color-vinho-hover: #680710;
+  --color-vinho-light: #9B1220;
+  --color-bege-claro: #F2E8DA;
+  --color-bege-quente: #E3D1BD;
+  --color-bege-dark: #D4BEA5;
+  --color-marrom-escuro: #49372F;
+  --color-marrom-hover: #372A23;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Cinzel", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F2E8DA;
+  color: #49372F;
+}
+
+::selection {
+  background-color: #820B16;
+  color: #F2E8DA;
+}
