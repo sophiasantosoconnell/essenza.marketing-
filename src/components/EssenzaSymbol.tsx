@@ -134,7 +134,7 @@ export function EssenzaIntegratedLogo({
       className={`relative rounded-2xl bg-[#820B16] flex items-center justify-center overflow-hidden shadow-sm transition-transform duration-200 ${dims} ${className}`}
     >
       <img
-        src="/public/assets/aistudio/c270a422-2482-4c5a-b50d-fa62e61ff876_a9bf5fc4.jpeg"
+        src="/logo.jpeg"
         alt="Essenza Estúdio"
         className="w-full h-full object-cover mix-blend-screen scale-110"
       />

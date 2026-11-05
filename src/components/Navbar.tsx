@@ -12,7 +12,7 @@ export function Navbar() {
         <a href="#" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-[#820B16] flex items-center justify-center p-1 shadow-sm transition-transform group-hover:scale-105">
             <img
-              src="/public/assets/aistudio/c270a422-2482-4c5a-b50d-fa62e61ff876_a9bf5fc4.jpeg"
+              src="/logo.jpeg"
               alt="Símbolo Essenza Estúdio"
               className="w-full h-full object-contain rounded-lg"
             />

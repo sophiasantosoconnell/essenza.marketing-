@@ -15,7 +15,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-[#820B16] p-1.5 flex items-center justify-center shadow-md">
                 <img
-                  src="/public/assets/aistudio/c270a422-2482-4c5a-b50d-fa62e61ff876_a9bf5fc4.jpeg"
+                  src="/logo.jpeg"
                   alt="Essenza Estúdio Símbolo"
                   className="w-full h-full object-contain rounded-lg"
                 />
