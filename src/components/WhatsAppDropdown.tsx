@@ -16,7 +16,6 @@ export function WhatsAppDropdown({
   className = '',
 }: WhatsAppDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedAttendant, setSelectedAttendant] = useState<Attendant>(ATTENDANTS[0]);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,11 +28,6 @@ export function WhatsAppDropdown({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleOpenWhatsApp = (attendant: Attendant) => {
-    const url = getWhatsAppUrl(attendant.phone, attendant.name, customMessage);
-    window.open(url, '_blank', 'noopener,noreferrer');
-    setIsOpen(false);
-  };
 
   const getVariantStyles = () => {
     switch (variant) {
@@ -50,107 +44,79 @@ export function WhatsAppDropdown({
   };
 
   return (
-    <div className={`relative inline-block text-left ${className}`} ref={dropdownRef}>
-      {/* Trigger Group: Main Action + Dropdown Toggle */}
-      <div className="inline-flex items-stretch rounded-full overflow-hidden transition-transform duration-200 hover:-translate-y-0.5">
-        <button
-          type="button"
-          onClick={() => handleOpenWhatsApp(selectedAttendant)}
-          className={`flex items-center gap-2 font-medium transition-colors px-4 py-2.5 ${getVariantStyles()}`}
-          title={`Iniciar conversa com ${selectedAttendant.name}`}
-        >
-          <MessageCircle className="w-4 h-4 text-emerald-400 fill-emerald-500/20" />
-          <span className="font-semibold tracking-wide">{buttonText}</span>
-          <span className="hidden sm:inline-block text-[11px] opacity-80 border-l border-current/25 pl-2">
-            {selectedAttendant.name.replace('Atendente ', '')}
-          </span>
-        </button>
+    <div className={`relative z-30 inline-block text-left ${className}`} ref={dropdownRef}>
+      {/* Trigger: Click to open choice between Brandão and Santos */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        className={`flex items-center justify-center gap-2 font-medium transition-transform duration-200 hover:-translate-y-0.5 px-5 py-3 rounded-full cursor-pointer shadow-md ${getVariantStyles()}`}
+        title="Escolher entre Atendente Brandão ou Santos"
+      >
+        <MessageCircle className="w-4 h-4 text-emerald-400 fill-emerald-500/20" />
+        <span className="font-semibold tracking-wide">{buttonText}</span>
+        <ChevronDown
+          className={`w-4 h-4 transition-transform duration-200 opacity-90 ${isOpen ? 'rotate-180' : ''}`}
+        />
+      </button>
 
-        {/* Dropdown chevron trigger */}
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-expanded={isOpen}
-          aria-haspopup="true"
-          className={`px-2.5 border-l border-white/20 flex items-center justify-center transition-colors ${getVariantStyles()}`}
-          title="Escolher atendente (Brandão ou Santos)"
-        >
-          <ChevronDown
-            className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-          />
-        </button>
-      </div>
-
-      {/* Menu Suspenso (Dropdown) */}
+      {/* Menu Suspenso (Dropdown com Brandão e Santos) */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-72 rounded-2xl bg-[#F2E8DA] border-2 border-[#820B16]/25 shadow-xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150">
-          <div className="p-3 bg-[#E3D1BD]/80 border-b border-[#820B16]/15">
+        <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 mt-2.5 w-80 rounded-2xl bg-[#F2E8DA] border-2 border-[#820B16] shadow-2xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150">
+          <div className="p-3.5 bg-[#820B16] text-[#F2E8DA]">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] uppercase tracking-wider font-bold text-[#820B16]">
-                Escolha o atendimento
+              <span className="text-xs uppercase tracking-wider font-bold text-[#F2E8DA]">
+                Com quem deseja falar?
               </span>
-              <span className="inline-flex items-center gap-1 text-[10px] font-medium text-emerald-800 bg-emerald-100/90 px-1.5 py-0.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                Disponível
+              <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Online agora
               </span>
             </div>
+            <p className="text-[11px] text-[#E3D1BD] mt-1">
+              Escolha uma de nossas atendentes para iniciar:
+            </p>
           </div>
 
-          <div className="p-1.5 space-y-1">
-            {ATTENDANTS.map((attendant) => {
-              const isCurrent = selectedAttendant.id === attendant.id;
-              return (
-                <div
-                  key={attendant.id}
-                  className={`group w-full p-2.5 rounded-xl text-left transition-all border flex items-center justify-between cursor-pointer ${
-                    isCurrent
-                      ? 'bg-[#820B16] text-[#F2E8DA] border-[#820B16] shadow-xs'
-                      : 'bg-white/80 hover:bg-[#E3D1BD] text-[#49372F] border-transparent'
-                  }`}
-                  onClick={() => {
-                    setSelectedAttendant(attendant);
-                    handleOpenWhatsApp(attendant);
-                  }}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shadow-inner ${
-                        isCurrent
-                          ? 'bg-[#F2E8DA] text-[#820B16]'
-                          : 'bg-[#820B16] text-[#F2E8DA]'
-                      }`}
-                    >
-                      {attendant.avatarLetter}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1 font-semibold text-xs">
-                        <span>{attendant.name}</span>
-                        {isCurrent && (
-                          <Check className="w-3 h-3 text-[#E3D1BD]" />
-                        )}
-                      </div>
-                      <div
-                        className={`text-[11px] ${
-                          isCurrent ? 'text-[#E3D1BD]' : 'text-[#49372F]/70'
-                        }`}
-                      >
-                        {attendant.formattedPhone}
-                      </div>
-                    </div>
+          <div className="p-2 space-y-2">
+            {ATTENDANTS.map((attendant) => (
+              <a
+                key={attendant.id}
+                href={getWhatsAppUrl(attendant.phone, attendant.name, customMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="group w-full p-3 rounded-xl text-left transition-all border border-[#820B16]/20 hover:border-[#820B16] bg-white hover:bg-[#FAF6F0] flex items-center justify-between shadow-2xs hover:shadow-md"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm bg-[#820B16] text-[#F2E8DA] group-hover:scale-105 transition-transform">
+                    {attendant.avatarLetter}
                   </div>
-
-                  <div
-                    className={`p-1.5 rounded-lg ${
-                      isCurrent
-                        ? 'bg-white/20 text-[#F2E8DA]'
-                        : 'bg-[#820B16]/10 text-[#820B16]'
-                    }`}
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
+                  <div>
+                    <div className="flex items-center gap-1 font-bold text-sm text-[#49372F] group-hover:text-[#820B16] transition-colors">
+                      <span>{attendant.name}</span>
+                    </div>
+                    <div className="text-xs text-[#820B16] font-semibold mt-0.5">
+                      {attendant.formattedPhone}
+                    </div>
+                    <div className="text-[11px] text-[#49372F]/70 mt-0.5">
+                      {attendant.role}
+                    </div>
                   </div>
                 </div>
-              );
-            })}
+
+                <div className="p-2 rounded-lg bg-[#820B16]/10 text-[#820B16] group-hover:bg-[#820B16] group-hover:text-[#F2E8DA] transition-colors">
+                  <ExternalLink className="w-4 h-4" />
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="p-2 bg-[#E3D1BD]/50 border-t border-[#820B16]/15 text-center">
+            <span className="text-[10px] text-[#49372F]/75 font-medium">
+              Atendimento rápido • Sem compromisso
+            </span>
           </div>
         </div>
       )}

@@ -123,12 +123,8 @@ export function PostShowcase() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E3D1BD] text-xs font-bold text-[#820B16] mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            4 ESPAÇOS PARA POSTS
-          </div>
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#49372F]">
-            Espaço reservado para o trabalho com os posts
+            Um pouco do nosso trabalho com os posts
           </h2>
           <p className="text-xs sm:text-sm text-[#49372F]/75 mt-1">
             Visual de alta qualidade com estratégia comercial pensada para o seu segmento.

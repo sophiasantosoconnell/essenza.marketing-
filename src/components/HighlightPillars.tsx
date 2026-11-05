@@ -16,13 +16,6 @@ const HIGHLIGHTS = [
     iconClass: 'text-[#F2E8DA]',
   },
   {
-    title: 'SERVIÇOS',
-    href: '#comparativo',
-    icon: Flag,
-    bgClass: 'bg-[#F2E8DA]',
-    iconClass: 'text-[#820B16]',
-  },
-  {
     title: 'ECONOMIA',
     href: '#comparativo',
     icon: DollarSign,
@@ -34,14 +27,8 @@ const HIGHLIGHTS = [
     href: '#portfolio',
     icon: ImageIcon,
     bgClass: 'bg-[#E3D1BD]',
+    borderClass: 'border-[#49372F]/30',
     iconClass: 'text-[#49372F]',
-  },
-  {
-    title: 'DESIGN',
-    href: '#portfolio',
-    icon: Palette,
-    bgClass: 'bg-[#F2E8DA]',
-    iconClass: 'text-[#820B16]',
   },
   {
     title: 'CONTATO',
@@ -54,7 +41,7 @@ const HIGHLIGHTS = [
 
 export function HighlightPillars() {
   return (
-    <div className="py-4 border-y border-[#820B16]/10 bg-[#FAF6F0]/70">
+    <div className="relative z-10 py-4 border-y border-[#820B16]/10 bg-[#FAF6F0]/70">
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex items-center justify-center gap-4 sm:gap-8 overflow-x-auto py-1 scrollbar-none">
           {HIGHLIGHTS.map((item, idx) => {

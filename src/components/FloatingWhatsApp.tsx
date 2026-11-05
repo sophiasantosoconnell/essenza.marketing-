@@ -16,11 +16,6 @@ export function FloatingWhatsApp() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleOpenAttendant = (attendant: Attendant) => {
-    const url = getWhatsAppUrl(attendant.phone, attendant.name);
-    window.open(url, '_blank', 'noopener,noreferrer');
-    setIsOpen(false);
-  };
 
   return (
     <div ref={containerRef} className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
@@ -55,10 +50,12 @@ export function FloatingWhatsApp() {
           {/* Attendants List */}
           <div className="p-2 space-y-1.5">
             {ATTENDANTS.map((attendant) => (
-              <button
+              <a
                 key={attendant.id}
-                type="button"
-                onClick={() => handleOpenAttendant(attendant)}
+                href={getWhatsAppUrl(attendant.phone, attendant.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
                 className="w-full text-left p-2.5 rounded-xl bg-white hover:bg-[#FAF6F0] border border-[#820B16]/15 transition-all flex items-center justify-between group shadow-2xs"
               >
                 <div className="flex items-center gap-2.5">
@@ -75,7 +72,7 @@ export function FloatingWhatsApp() {
                 <div className="p-1.5 rounded-lg bg-[#820B16]/10 text-[#820B16] group-hover:bg-[#820B16] group-hover:text-[#F2E8DA] transition-colors">
                   <Send className="w-3.5 h-3.5" />
                 </div>
-              </button>
+              </a>
             ))}
           </div>
         </div>

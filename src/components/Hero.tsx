@@ -3,7 +3,7 @@ import { WhatsAppDropdown } from './WhatsAppDropdown';
 
 export function Hero() {
   return (
-    <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 overflow-hidden">
+    <section className="relative z-20 pt-8 pb-12 sm:pt-12 sm:pb-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto space-y-5">
           {/* Natural Brand Emblem in the exact red tone of the image */}
