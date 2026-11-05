@@ -30,7 +30,7 @@ export const ATTENDANTS: Attendant[] = [
 ];
 
 export function getWhatsAppUrl(phone: string, attendantName: string, customMessage?: string): string {
-  const defaultText = `Olá ${attendantName}! Vi a landing page da Essenza Estúdio e gostaria de solicitar um orçamento para os posts do Instagram da minha empresa.`;
+  const defaultText = `Olá ${attendantName}! Vi o site da Essenza Estúdio e gostaria de solicitar um orçamento para os posts do Instagram da minha empresa.`;
   const text = customMessage || defaultText;
   return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 }

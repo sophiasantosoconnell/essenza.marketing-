@@ -7,9 +7,9 @@ export function Navbar() {
         <a href="#" className="flex items-center gap-3.5 group">
           <div className="w-12 h-12 rounded-xl bg-[#820B16] flex items-center justify-center p-1.5 shadow-sm transition-transform group-hover:scale-105">
             <img
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="Símbolo Essenza Estúdio"
-              className="w-full h-full object-contain rounded-lg"
+              className="w-full h-full object-contain rounded-lg contrast-105"
             />
           </div>
           <div className="flex flex-col text-left">

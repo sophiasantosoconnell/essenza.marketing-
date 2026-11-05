@@ -10,9 +10,9 @@ export function Hero() {
           <div className="inline-flex flex-col items-center justify-center">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#820B16] p-2 shadow-lg shadow-[#820B16]/25 transition-transform hover:scale-105 duration-300">
               <img
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt="Símbolo Oficial Essenza Estúdio"
-                className="w-full h-full object-contain rounded-xl"
+                className="w-full h-full object-contain rounded-xl contrast-105"
               />
             </div>
             <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.25em] text-[#820B16] mt-2 block">
