@@ -8,17 +8,17 @@ export function Hero() {
         <div className="text-center max-w-3xl mx-auto space-y-5">
           {/* Natural Brand Emblem in the exact red tone of the image */}
           <div className="inline-flex flex-col items-center justify-center">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#820B16] p-2 shadow-lg shadow-[#820B16]/25 transition-transform hover:scale-105 duration-300">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-3xl bg-[#820B16] p-2.5 sm:p-3 shadow-xl shadow-[#820B16]/30 border-2 border-[#E3D1BD]/40 transition-transform hover:scale-105 duration-300">
               <img
-                src="/logo.png"
+                src="/logo-hd.png"
                 alt="Símbolo Oficial Essenza Estúdio"
-                className="w-full h-full object-contain rounded-xl contrast-105"
+                className="w-full h-full object-contain rounded-2xl contrast-105 brightness-102"
               />
             </div>
-            <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.25em] text-[#820B16] mt-2 block">
+            <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.25em] text-[#820B16] mt-3 block">
               ESSENZA
             </span>
-            <span className="text-[10px] tracking-[0.3em] uppercase text-[#49372F]/70 font-semibold -mt-0.5">
+            <span className="text-[11px] sm:text-xs tracking-[0.35em] uppercase text-[#49372F]/75 font-bold -mt-0.5">
               ESTÚDIO
             </span>
           </div>
