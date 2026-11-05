@@ -24,3 +24,16 @@ body {
   background-color: #820B16;
   color: #F2E8DA;
 }
+
+/* Ensure images downscale with high quality interpolation without aliasing / moiré */
+img {
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-smooth {
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

@@ -15,9 +15,11 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-[#820B16] p-1.5 flex items-center justify-center shadow-md">
                 <img
-                  src="/logo.png"
+                  src="/logo-320.png"
+                  srcSet="/logo-320.png 320w, /logo-640.png 640w"
+                  sizes="48px"
                   alt="Essenza Estúdio Símbolo"
-                  className="w-full h-full object-contain rounded-lg contrast-105"
+                  className="w-full h-full object-contain rounded-lg logo-smooth"
                 />
               </div>
               <div>

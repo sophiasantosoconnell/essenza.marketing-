@@ -7,9 +7,11 @@ export function Navbar() {
         <a href="#" className="flex items-center gap-3.5 group">
           <div className="w-12 h-12 rounded-xl bg-[#820B16] flex items-center justify-center p-1.5 shadow-sm transition-transform group-hover:scale-105">
             <img
-              src="/logo.png"
+              src="/logo-320.png"
+              srcSet="/logo-320.png 320w, /logo-640.png 640w"
+              sizes="48px"
               alt="Símbolo Essenza Estúdio"
-              className="w-full h-full object-contain rounded-lg contrast-105"
+              className="w-full h-full object-contain rounded-lg logo-smooth"
             />
           </div>
           <div className="flex flex-col text-left">
